@@ -11,9 +11,11 @@ main{
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  max-width: 1280px;
 }
 
-.card-content-post {
+.card-content-post,
+.card-content-posts {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,8 +25,9 @@ main{
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  min-width: 80dvh;
-}	
+  width: min(90%, 8000px); /* Toma el menor valor: 90% o 800px */
+  min-width: min(700px, 100vw - 2rem); /* Adaptación móvil */
+}
 
 .what-do-you-thing{
   width: 100%;

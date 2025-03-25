@@ -2,11 +2,12 @@ import './App.css';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { Button, Card, CardContent } from '@mui/material';
+import { Button, Card, CardContent, Divider } from '@mui/material';
 
 const darkTheme = createTheme({
 	palette: {
 		mode: 'dark',
+		divider: '#afafaf',
 		background: {
 			default: '#2f3742', // Color de fondo principal
 			paper: '#364357', // Color para componentes como Cards, Dialogs
@@ -34,6 +35,7 @@ export function App() {
 									/>
 								</form>
 							</div>
+							<Divider />
 							<div className='actions'>
 								<Button variant='contained'>Video</Button>
 								<Button variant='contained'>Imagen</Button>

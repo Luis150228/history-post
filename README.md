@@ -7,6 +7,16 @@
 Proyecto para crear una interfaz de publicación de red social con funcionalidades completas de creación y visualización
 de posts.
 
+## APi para crear el backend de pruebas
+
+https://jsonbin.io/
+
+## Imagenes de GitHub
+
+- https://avatars.githubusercontent.com/Luis150228?size=60
+- https://avatars.githubusercontent.com/midudev?size=60
+- https://avatars.githubusercontent.com/Klerith?size=60
+
 ## 📋 Requisitos Funcionales
 
 ### 🖊️ Sección de Publicación
