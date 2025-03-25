@@ -40,7 +40,7 @@ de posts.
 
 - **Frontend**: React + TypeScript
 - **Gestión de estado**: Zustand (para manejo de estado global)
-- **Estilos**: Tailwind CSS o styled-components
+- **Estilos**: Material UI
 - **Formatos de fecha**: date-fns
 - **Generación de IDs**: uuidv4
 

@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { Button } from '@mui/material';
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+const darkTheme = createTheme({
+	palette: {
+		mode: 'dark',
+		background: {
+			default: '#2f3742', // Color de fondo principal
+			paper: '#364357', // Color para componentes como Cards, Dialogs
+		},
+	},
+});
+
+export function App() {
+	return (
+		<ThemeProvider theme={darkTheme}>
+			<CssBaseline />
+			<main>PortHistory App RangelDev</main>
+			<Button
+				variant='contained'
+				color='primary'>
+				Hello World
+			</Button>
+		</ThemeProvider>
+	);
 }
 
-export default App
+export default App;
