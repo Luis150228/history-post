@@ -21,11 +21,12 @@ main{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
-  border: 1px solid #ccc;
+  /* padding: 1rem; */
+  /* border: 1px solid #ccc; */
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  min-width: 515px;
+  min-width: 514px;
+  max-width: 515px;
 }
 
 .what-do-you-thing{
@@ -34,8 +35,17 @@ main{
 }
 
 .follow-posts{
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center; */
   width: 100%;
 }
+
+/* .follow-posts p{
+  justify-content: flex-start;
+  border: 1px solid whitesmoke;
+  border-radius: 12px;
+} */
 
 .what-do-you-thing form{
   display: flex;
@@ -71,4 +81,42 @@ main{
 .btns-actions svg{
   height: auto;
   width: 40px;
+}
+
+.post-secction-commits{
+  display: flex;
+  flex-direction: column;
+}
+
+.post-resume-commits{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+.post-commits-btns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px;
+  width: 100%;
+}
+
+.post-resume{
+  display: flex;
+  flex-direction: row;
+}
+
+.post-commits{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  color: #ccc;
+}
+
+.post-commits p{
+  font-size: x-small;
 }

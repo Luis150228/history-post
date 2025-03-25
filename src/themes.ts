@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material";
 
-// Augment the palette to include a salmon color
+// Augment the palette to include a color
 declare module '@mui/material/styles' {
     interface Palette {
         iconVideo: Palette['primary'];
@@ -15,7 +15,7 @@ declare module '@mui/material/styles' {
     }
   }
   
-  // Update the Button's color options to include a salmon option
+  // Update the Button's color options to include a option
   declare module '@mui/material/Button' {
     interface ButtonPropsColorOverrides {
         iconVideo: true;
