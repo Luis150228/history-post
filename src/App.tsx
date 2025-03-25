@@ -1,19 +1,12 @@
 import './App.css';
 
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { Button, Card, CardContent, Divider } from '@mui/material';
-
-const darkTheme = createTheme({
-	palette: {
-		mode: 'dark',
-		divider: '#afafaf',
-		background: {
-			default: '#2f3742', // Color de fondo principal
-			paper: '#364357', // Color para componentes como Cards, Dialogs
-		},
-	},
-});
+import { Card, CardContent, Divider, IconButton } from '@mui/material';
+import EmergencyRecordingIcon from '@mui/icons-material/EmergencyRecording';
+import CameraIcon from '@mui/icons-material/Camera';
+import AddReactionIcon from '@mui/icons-material/AddReaction';
+import { darkTheme } from './themes';
 
 export function App() {
 	return (
@@ -36,10 +29,16 @@ export function App() {
 								</form>
 							</div>
 							<Divider />
-							<div className='actions'>
-								<Button variant='contained'>Video</Button>
-								<Button variant='contained'>Imagen</Button>
-								<Button variant='contained'>Sentimiento</Button>
+							<div className='btns-actions'>
+								<IconButton aria-label='Live-Stream' size='large' color='iconVideo'>	
+									<EmergencyRecordingIcon/>
+								</IconButton>
+								<IconButton aria-label='upload-multimedia' size='large' color='iconPicture'>	
+									<CameraIcon/>
+								</IconButton>
+								<IconButton aria-label='what-you-feel' size='large' color='iconEmoji'>	
+									<AddReactionIcon/>
+								</IconButton>
 							</div>
 						</CardContent>
 					</Card>
@@ -47,7 +46,7 @@ export function App() {
 				<section className='section-posts'>
 					<Card>
 						<CardContent className='card-content-posts'>
-							<div className='what-do-you-thing'></div>
+							<div className='follow-posts'></div>
 							<h2>Publicaciones</h2>
 						</CardContent>
 					</Card>
