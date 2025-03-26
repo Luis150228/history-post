@@ -104,9 +104,12 @@
 .post-commits-btns{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 8px;
+  gap: 80px;
   width: 100%;
+  position: relative;
+  height: 60px;
 }
 
 .post-resume{

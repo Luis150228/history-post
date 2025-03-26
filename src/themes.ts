@@ -14,7 +14,14 @@ declare module '@mui/material/styles' {
         iconEmoji?: PaletteOptions['primary'];
     }
   }
-  
+
+  declare module '@mui/material/IconButton' {
+  interface IconButtonPropsColorOverrides {
+    iconVideo: true;
+    iconPicture: true;
+    iconEmoji: true;
+  }
+}
   // Update the Button's color options to include a option
   declare module '@mui/material/Button' {
     interface ButtonPropsColorOverrides {
