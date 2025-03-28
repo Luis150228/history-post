@@ -24,13 +24,21 @@ import MarkEmailReadOutlinedIcon from '@mui/icons-material/MarkEmailReadOutlined
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { CardMediaPicture } from './Card/CardMediaPicture';
 import { MediaItem } from '../types/type_postUser';
+import IconPopoverBtn from './Buttons/IconPopoverBtn';
 
 export const CardContentPosts = () => {
+	// const sampleImages: MediaItem[] = [
+	// 	{ type: 'image', url: 'https://picsum.photos/600/600?random=1', alt_text: 'Imagen 1' },
+	// 	{ type: 'image', url: 'https://picsum.photos/600/600?random=2', alt_text: 'Imagen 2' },
+	// 	{ type: 'image', url: 'https://picsum.photos/600/600?random=3', alt_text: 'Imagen 3' },
+	// 	{ type: 'image', url: 'https://picsum.photos/600/600?random=4', alt_text: 'Imagen 4' },
+	// 	// Agrega más imágenes...
+	// ];
 	const sampleImages: MediaItem[] = [
-		{ type: 'image', url: 'https://picsum.photos/600/600?random=1', alt_text: 'Imagen 1' },
-		{ type: 'image', url: 'https://picsum.photos/600/600?random=2', alt_text: 'Imagen 2' },
-		{ type: 'image', url: 'https://picsum.photos/600/600?random=3', alt_text: 'Imagen 3' },
-		{ type: 'image', url: 'https://picsum.photos/600/600?random=4', alt_text: 'Imagen 4' },
+		{ type: 'image', url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/SAN_Boletin_Responsabilidad-Social_Int_608x405_2019.jpg', alt_text: 'Imagen 1' },
+		{ type: 'image', url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/invierte_608.jpg', alt_text: 'Imagen 2' },
+		{ type: 'image', url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/hipotecas_608.jpg', alt_text: 'Imagen 3' },
+		{ type: 'image', url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/SDEMH_7423_1.jpg', alt_text: 'Imagen 4' },
 		// Agrega más imágenes...
 	];
 	return (
@@ -79,9 +87,10 @@ export const CardContentPosts = () => {
 			<CardActions className='post-secction-commits'>
 				<div className='post-resume-commits'>
 					<div className='post-resume'>
-						<IconButton size='small'>
+						{/* <IconButton size='small'>
 							<FavoriteIcon fontSize='inherit' />
-						</IconButton>
+						</IconButton> */}
+						<IconPopoverBtn/>
 						<IconButton size='small'>
 							<ThumbUpIcon fontSize='inherit' />
 						</IconButton>

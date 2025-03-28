@@ -12,14 +12,14 @@
             "media": [
                 {
                     "type": "image",
-                    "url": "https://picsum.photos/600/600?random=3",
+                    "url": "https://www.santander.com.mx/ceb/images/sala-prensa/2019/invierte_608.jpg",
                     "alt_text": "Imagen descriptiva para accesibilidad",
                     "width": 1080,
                     "height": 720
                 },
                 {
                     "type": "image",
-                    "url": "https://picsum.photos/600/600?random=2",
+                    "url": "https://www.santander.com.mx/ceb/images/sala-prensa/2019/SDEMH_7423_1.jpg",
                     "alt_text": "Imagen descriptiva para accesibilidad",
                     "width": 1080,
                     "height": 720
