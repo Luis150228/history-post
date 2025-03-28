@@ -1,0 +1,40 @@
+en mi stackBlitz me aparece este error como puedo resolverlo
+
+❯ npm install && npm run dev
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE could not resolve
+npm ERR! 
+npm ERR! While resolving: @emotion/styled@11.14.0
+npm ERR! Found: @emotion/react@11.14.0
+npm ERR! node_modules/@emotion/react
+npm ERR!   @emotion/react@"^11.14.0" from the root project
+npm ERR! 
+npm ERR! Could not resolve dependency:
+npm ERR! peer @emotion/react@"11.0.0-rc.0" from @emotion/styled@11.14.0
+npm ERR! node_modules/@emotion/styled
+npm ERR!   @emotion/styled@"^11.14.0" from the root project
+npm ERR! 
+npm ERR! Conflicting peer dependency: @emotion/react@11.0.0-rc.0
+npm ERR! node_modules/@emotion/react
+npm ERR!   peer @emotion/react@"11.0.0-rc.0" from @emotion/styled@11.14.0
+npm ERR!   node_modules/@emotion/styled
+npm ERR!     @emotion/styled@"^11.14.0" from the root project
+npm ERR! 
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR! 
+npm ERR! 
+npm ERR! For a full report see:
+npm ERR! /home/.npm/_logs/2025-03-28T19_00_14_941Z-eresolve-report.txt
+
+npm ERR! A complete log of this run can be found in: /home/.npm/_logs/2025-03-28T19_00_14_941Z-debug-0.log
+
+~/Luis150228/history-post 3s
+❯ npm install --legacy-peer-deps && npm run dev
+npm ERR! code ETARGET
+npm ERR! notarget No matching version found for @aashutoshrathi/word-wrap@1.2.3.
+npm ERR! notarget In most cases you or one of your dependencies are requesting
+npm ERR! notarget a package version that doesn't exist.
+
+npm ERR! A complete log of this run can be found in: /home/.npm/_logs/2025-03-28T19_00_18_584Z-debug-0.log
