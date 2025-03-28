@@ -4,7 +4,6 @@ import {
 	CardActions,
 	CardContent,
 	CardHeader,
-	CardMedia,
 	IconButton,
 	Typography,
 	SpeedDial,
@@ -24,13 +23,14 @@ import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
 import MarkEmailReadOutlinedIcon from '@mui/icons-material/MarkEmailReadOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { CardMediaPicture } from './Card/CardMediaPicture';
+import { MediaItem } from '../types/type_postUser';
 
 export const CardContentPosts = () => {
-	const sampleImages = [
-		{ id: 1, url: 'https://picsum.photos/600/600?random=1', alt: 'Imagen 1' },
-		{ id: 2, url: 'https://picsum.photos/600/600?random=2', alt: 'Imagen 2' },
-		{ id: 3, url: 'https://picsum.photos/600/600?random=3', alt: 'Imagen 3' },
-		{ id: 4, url: 'https://picsum.photos/600/600?random=4', alt: 'Imagen 4' },
+	const sampleImages: MediaItem[] = [
+		{ type: 'image', url: 'https://picsum.photos/600/600?random=1', alt_text: 'Imagen 1' },
+		{ type: 'image', url: 'https://picsum.photos/600/600?random=2', alt_text: 'Imagen 2' },
+		{ type: 'image', url: 'https://picsum.photos/600/600?random=3', alt_text: 'Imagen 3' },
+		{ type: 'image', url: 'https://picsum.photos/600/600?random=4', alt_text: 'Imagen 4' },
 		// Agrega más imágenes...
 	];
 	return (

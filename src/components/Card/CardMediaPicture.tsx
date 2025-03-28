@@ -1,14 +1,9 @@
 import { SetStateAction, useState } from 'react';
 import { CardMedia, Box, Modal, IconButton, Typography } from '@mui/material';
 import { Close, NavigateBefore, NavigateNext } from '@mui/icons-material';
+import { MediaItem } from '../../types/type_postUser.d';
 
-interface Image {
-	id: number;
-	url: string;
-	alt: string;
-}
-
-export const CardMediaPicture = ({ images }: { images: Image[] }) => {
+export const CardMediaPicture = ({ images }: { images: MediaItem[] }) => {
 	const [open, setOpen] = useState(false);
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -34,7 +29,7 @@ export const CardMediaPicture = ({ images }: { images: Image[] }) => {
 				<CardMedia
 					component='img'
 					image={images[0].url}
-					alt={images[0].alt}
+					alt={images[0].alt_text}
 					onClick={() => handleOpen(0)}
 					sx={{
 						cursor: 'pointer',
@@ -92,7 +87,7 @@ export const CardMediaPicture = ({ images }: { images: Image[] }) => {
 						}}>
 						<img
 							src={images[currentImageIndex].url}
-							alt={images[currentImageIndex].alt}
+							alt={images[currentImageIndex].alt_text}
 							style={{
 								maxHeight: '90vh',
 								maxWidth: '100%',

@@ -1,12 +1,7 @@
 import { useState } from 'react';
 import { Box, ImageList, ImageListItem, Modal, IconButton, useMediaQuery, Theme } from '@mui/material';
 import { NavigateBefore, NavigateNext, Close, Favorite, Share } from '@mui/icons-material';
-
-interface Image {
-	id: number;
-	url: string;
-	alt: string;
-}
+import { Image } from '../../types/type_postUser.d';
 
 export const MediaGallery = ({ images }: { images: Image[] }) => {
 	const [open, setOpen] = useState(false);

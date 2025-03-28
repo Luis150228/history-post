@@ -1,0 +1,151 @@
+[
+    {
+        "post_id": "uuidv4_or_00000001",
+        "author": {
+            "user_id": "user123",
+            "username": "octocat",
+            "profile_picture": "https://github.com/octocat.png",
+            "verified": false
+        },
+        "content": {
+            "text": "¡Este es mi primer post en la red social! #inspired",
+            "media": [
+                {
+                    "type": "image",
+                    "url": "https://picsum.photos/600/600?random=3",
+                    "alt_text": "Imagen descriptiva para accesibilidad",
+                    "width": 1080,
+                    "height": 720
+                },
+                {
+                    "type": "image",
+                    "url": "https://picsum.photos/600/600?random=2",
+                    "alt_text": "Imagen descriptiva para accesibilidad",
+                    "width": 1080,
+                    "height": 720
+                }
+            ],
+            "links": [
+                {
+                    "url": "https://example.com/related-article",
+                    "title": "Artículo relacionado interesante",
+                    "description": "Descripción del enlace compartido",
+                    "image": "https://example.com/link-preview.jpg"
+                }
+            ]
+        },
+        "metadata": {
+            "created_at": "2023-11-15T14:30:00Z",
+            "updated_at": "2023-11-15T14:35:00Z",
+            "language": "es",
+            "content_rating": "safe"
+        },
+        "interactions": {
+            "likes": 42,
+            "comments": 5,
+            "shares": 3,
+            "bookmarks": 1,
+            "views": 150,
+            "user_interaction": {
+                "liked": true,
+                "shared": false,
+                "bookmarked": true
+            }
+        },
+        "comments_preview": [
+            {
+                "comment_id": "comment456",
+                "user": {
+                    "user_id": "user789",
+                    "username": "janedoe"
+                },
+                "text": "¡Felicidades por tu primer post!",
+                "created_at": "2023-11-15T14:32:00Z"
+            }
+        ],
+        "privacy": {
+            "visibility": "public",
+            "allowed_users": [],
+            "blocked_users": [
+                "user456"
+            ]
+        },
+        "monetization": {
+            "is_sponsored": false,
+            "sponsor": null,
+            "ad_metadata": null
+        },
+        "version": "1.0"
+    },
+    {
+        "post_id": "uuidv4_or_00000002",
+        "author": {
+            "user_id": "user123",
+            "username": "octocat",
+            "profile_picture": "https://github.com/octocat.png",
+            "verified": false
+        },
+        "content": {
+            "text": "¡Este es mi segundo post en la red social! #excited",
+            "media": [
+                {
+                    "type": "image",
+                    "url": "https://picsum.photos/600/600?random=4",
+                    "alt_text": "Imagen descriptiva para accesibilidad",
+                    "width": 1080,
+                    "height": 720
+                }
+            ],
+            "links": [
+                {
+                    "url": "https://example.com/related-article",
+                    "title": "Artículo relacionado interesante",
+                    "description": "Descripción del enlace compartido",
+                    "image": "https://example.com/link-preview.jpg"
+                }
+            ]
+        },
+        "metadata": {
+            "created_at": "2023-11-15T14:40:00Z",
+            "updated_at": "2023-11-15T14:55:00Z",
+            "language": "es",
+            "content_rating": "safe"
+        },
+        "interactions": {
+            "likes": 42,
+            "comments": 5,
+            "shares": 3,
+            "bookmarks": 1,
+            "views": 150,
+            "user_interaction": {
+                "liked": true,
+                "shared": false,
+                "bookmarked": true
+            }
+        },
+        "comments_preview": [
+            {
+                "comment_id": "comment456",
+                "user": {
+                    "user_id": "user789",
+                    "username": "janedoe"
+                },
+                "text": "¡Felicidades por tu segundo post!",
+                "created_at": "2023-11-15T14:52:00Z"
+            }
+        ],
+        "privacy": {
+            "visibility": "public",
+            "allowed_users": [],
+            "blocked_users": [
+                "user456"
+            ]
+        },
+        "monetization": {
+            "is_sponsored": false,
+            "sponsor": null,
+            "ad_metadata": null
+        },
+        "version": "1.0"
+    }
+]
