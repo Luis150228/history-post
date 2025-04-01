@@ -1,42 +1,80 @@
-import * as React from 'react';
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
-import { IconButton, Tooltip } from '@mui/material';
+import { IconButton, Tooltip, Stack } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import CommentIcon from '@mui/icons-material/Comment';
+import ShareIcon from '@mui/icons-material/Share';
+import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import { type Interactions, UserInteraction } from '../../types/type_postUser.d';
 
-export default function IconPopoverBtn() {
-  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+const interactionConfig = {
+	likes: {
+		icon: FavoriteIcon,
+		userInteractionKey: 'liked',
+		tooltip: (count: number, interacted: boolean) =>
+			`${count} ${count === 1 ? 'like' : 'likes'}${interacted ? '-' : ''}`,
+	},
+	// comments: {
+	// 	icon: CommentIcon,
+	// 	userInteractionKey: null,
+	// 	tooltip: (count: number) => `${count} ${count === 1 ? 'comentario' : 'comentarios'}`,
+	// },
+	shares: {
+		icon: ShareIcon,
+		userInteractionKey: 'shared',
+		tooltip: (count: number, interacted: boolean) =>
+			`${count} ${count === 1 ? 'compartido' : 'compartidos'}${interacted ? '-' : ''}`,
+	},
+	bookmarks: {
+		icon: BookmarkAddedIcon,
+		userInteractionKey: 'bookmarked',
+		tooltip: (count: number, interacted: boolean) =>
+			`${count} ${count === 1 ? 'guardado' : 'guardados'}${interacted ? '-' : ''}`,
+	},
+	views: {
+		icon: VisibilityIcon,
+		userInteractionKey: null,
+		tooltip: (count: number) => `${count} visualizaciones`,
+	},
+} as const;
 
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(e.currentTarget);
-  };
+export default function InteractionIcons({ interactions }: { interactions: Interactions }) {
+	const interactionEntries = Object.entries(interactions)
+		.filter(([key]) => key in interactionConfig)
+		.map(([key, count]) => {
+			const interactionType = key as keyof typeof interactionConfig;
+			const { icon: IconComponent, userInteractionKey, tooltip } = interactionConfig[interactionType];
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+			const userInteracted = userInteractionKey
+				? interactions.user_interaction[userInteractionKey as keyof UserInteraction]
+				: false;
 
-  const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+			return {
+				type: interactionType,
+				count: count as number,
+				IconComponent,
+				userInteracted,
+				tooltip: tooltip(count, userInteracted),
+			};
+		});
 
-  return (
-    <>
-        <Tooltip title={'12'} placement="top-start">
-            <IconButton size='small' aria-label='settings' aria-describedby={id} onClick={handleClick}>
-                <FavoriteIcon fontSize='inherit' />
-            </IconButton>
-        </Tooltip>
-        <Popover
-            id={id}
-            open={open}
-            anchorEl={anchorEl}
-            onClose={handleClose}
-            anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
-            }}
-        >
-            <Typography sx={{ p: 2 }}>The content of the Popover.</Typography>
-        </Popover>
-    </>
-  );
+	return (
+		<Stack
+			direction='row'
+			spacing={1}>
+			{interactionEntries.map(({ IconComponent, tooltip, type, userInteracted }) => (
+				<Tooltip
+					key={type}
+					title={tooltip}
+					placement='top'
+					arrow>
+					<IconButton
+						size='small'
+						aria-label={type}
+						color={userInteracted ? 'primary' : 'default'}>
+						<IconComponent fontSize='inherit' />
+					</IconButton>
+				</Tooltip>
+			))}
+		</Stack>
+	);
 }

@@ -23,7 +23,7 @@ import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
 import MarkEmailReadOutlinedIcon from '@mui/icons-material/MarkEmailReadOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { CardMediaPicture } from './Card/CardMediaPicture';
-import { MediaItem } from '../types/type_postUser';
+import { type MediaItem, Interactions } from '../types/type_postUser.d';
 import IconPopoverBtn from './Buttons/IconPopoverBtn';
 
 export const CardContentPosts = () => {
@@ -35,12 +35,42 @@ export const CardContentPosts = () => {
 	// 	// Agrega más imágenes...
 	// ];
 	const sampleImages: MediaItem[] = [
-		{ type: 'image', url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/SAN_Boletin_Responsabilidad-Social_Int_608x405_2019.jpg', alt_text: 'Imagen 1' },
-		{ type: 'image', url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/invierte_608.jpg', alt_text: 'Imagen 2' },
-		{ type: 'image', url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/hipotecas_608.jpg', alt_text: 'Imagen 3' },
-		{ type: 'image', url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/SDEMH_7423_1.jpg', alt_text: 'Imagen 4' },
+		{
+			type: 'image',
+			url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/SAN_Boletin_Responsabilidad-Social_Int_608x405_2019.jpg',
+			alt_text: 'Imagen 1',
+		},
+		{
+			type: 'image',
+			url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/invierte_608.jpg',
+			alt_text: 'Imagen 2',
+		},
+		{
+			type: 'image',
+			url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/hipotecas_608.jpg',
+			alt_text: 'Imagen 3',
+		},
+		{
+			type: 'image',
+			url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/SDEMH_7423_1.jpg',
+			alt_text: 'Imagen 4',
+		},
 		// Agrega más imágenes...
 	];
+
+	const interactions: Interactions = {
+		likes: 42,
+		comments: 5,
+		shares: 3,
+		bookmarks: 1,
+		views: 150,
+		user_interaction: {
+			liked: true,
+			shared: false,
+			bookmarked: true,
+		},
+	};
+
 	return (
 		<Card className='card-posts'>
 			<CardHeader
@@ -90,10 +120,7 @@ export const CardContentPosts = () => {
 						{/* <IconButton size='small'>
 							<FavoriteIcon fontSize='inherit' />
 						</IconButton> */}
-						<IconPopoverBtn/>
-						<IconButton size='small'>
-							<ThumbUpIcon fontSize='inherit' />
-						</IconButton>
+						<IconPopoverBtn interactions={interactions} />
 					</div>
 					<div className='post-commits'>
 						<Typography>

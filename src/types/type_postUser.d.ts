@@ -35,6 +35,12 @@ export interface Interactions {
   user_interaction: UserInteraction;
 }
 
+export interface UserInteraction {
+  liked: boolean;
+  shared: boolean;
+  bookmarked: boolean;
+}
+
 export interface CommentPreview {
   comment_id: string;
   user: {
