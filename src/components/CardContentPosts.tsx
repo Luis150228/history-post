@@ -26,6 +26,7 @@ import { CardMediaPicture } from './Card/CardMediaPicture';
 import { type SocialMediaPost } from '../types/type_postUser.d';
 import IconPopoverBtn from './Buttons/IconPopoverBtn';
 import { CommentSection } from './Card/CommentSection';
+import { CommentAdd } from './Card/CommentAdd';
 
 export const CardContentPosts = ({ posts }: { posts: SocialMediaPost }) => {
 	console.log(posts);
@@ -73,9 +74,6 @@ export const CardContentPosts = ({ posts }: { posts: SocialMediaPost }) => {
 			<CardActions className='post-secction-commits'>
 				<div className='post-resume-commits'>
 					<div className='post-resume'>
-						{/* <IconButton size='small'>
-							<FavoriteIcon fontSize='inherit' />
-						</IconButton> */}
 						<IconPopoverBtn interactions={posts.interactions} />
 					</div>
 					<div className='post-commits'>
@@ -165,6 +163,7 @@ export const CardContentPosts = ({ posts }: { posts: SocialMediaPost }) => {
 				</div>
 			</CardActions>
 			<CommentSection comments={posts.comments_preview || []} />
+			<CommentAdd />
 		</Card>
 	);
 };

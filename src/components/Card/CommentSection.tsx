@@ -1,18 +1,7 @@
-import { useState } from 'react';
-import {
-	List,
-	ListItem,
-	ListItemAvatar,
-	Avatar,
-	ListItemText,
-	Typography,
-	Divider,
-	TextField,
-	IconButton,
-	InputAdornment,
-} from '@mui/material';
-import { Send, MoreVert } from '@mui/icons-material';
+import { List, ListItem, ListItemAvatar, Avatar, ListItemText, Typography, Divider, IconButton } from '@mui/material';
 import { type CommentPreview } from '../../types/type_postUser.d';
+import InteractionIcons from '../Buttons/IconPopoverBtn';
+import CreateIcon from '@mui/icons-material/Create';
 
 interface CommentSectionProps {
 	comments: CommentPreview[];
@@ -20,17 +9,6 @@ interface CommentSectionProps {
 }
 
 export const CommentSection = ({ comments }: CommentSectionProps) => {
-	const [newComment, setNewComment] = useState('');
-
-	const handleSubmit = (e: React.FormEvent) => {
-		e.preventDefault();
-		if (newComment.trim()) {
-			// Aquí manejarías el envío del comentario
-			console.log('Comentario enviado:', newComment);
-			setNewComment('');
-		}
-	};
-
 	return (
 		<div className='comment-section'>
 			<List dense>
@@ -73,8 +51,9 @@ export const CommentSection = ({ comments }: CommentSectionProps) => {
 							<IconButton
 								edge='end'
 								size='small'>
-								<MoreVert />
+								<CreateIcon />
 							</IconButton>
+							<InteractionIcons interactions={comment.interactions || {}} />
 						</ListItem>
 						<Divider
 							variant='inset'
@@ -83,34 +62,6 @@ export const CommentSection = ({ comments }: CommentSectionProps) => {
 					</div>
 				))}
 			</List>
-
-			<form
-				onSubmit={handleSubmit}
-				style={{ marginTop: '16px' }}>
-				<TextField
-					fullWidth
-					variant='outlined'
-					size='small'
-					placeholder='Escribe un comentario...'
-					value={newComment}
-					onChange={(e) => setNewComment(e.target.value)}
-					slotProps={{
-						input: {
-							endAdornment: (
-								<InputAdornment position='end'>
-									<IconButton
-										type='submit'
-										color='primary'
-										disabled={!newComment.trim()}
-										edge='end'>
-										<Send />
-									</IconButton>
-								</InputAdornment>
-							),
-						},
-					}}
-				/>
-			</form>
 		</div>
 	);
 };

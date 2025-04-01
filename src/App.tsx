@@ -102,6 +102,10 @@ const samplePosts: SocialMediaPost[] = [
 				},
 				text: 'Fotos increibles de donde son????????????????????',
 				created_at: '2023-11-15T15:11:00Z',
+				interactions: {
+					likes: 1,
+					views: 2,
+				},
 			},
 			{
 				comment_id: 'comment458',

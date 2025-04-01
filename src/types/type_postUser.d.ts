@@ -27,7 +27,7 @@ export interface UserInteraction {
 }
 
 export interface Interactions {
-  likes: number;
+  likes?: number;
   comments?: number;
   shares?: number;
   bookmarks?: number;
