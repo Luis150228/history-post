@@ -23,65 +23,23 @@ import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
 import MarkEmailReadOutlinedIcon from '@mui/icons-material/MarkEmailReadOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { CardMediaPicture } from './Card/CardMediaPicture';
-import { type MediaItem, Interactions } from '../types/type_postUser.d';
+import { type SocialMediaPost } from '../types/type_postUser.d';
 import IconPopoverBtn from './Buttons/IconPopoverBtn';
+import { CommentSection } from './Card/CommentSection';
 
-export const CardContentPosts = () => {
-	// const sampleImages: MediaItem[] = [
-	// 	{ type: 'image', url: 'https://picsum.photos/600/600?random=1', alt_text: 'Imagen 1' },
-	// 	{ type: 'image', url: 'https://picsum.photos/600/600?random=2', alt_text: 'Imagen 2' },
-	// 	{ type: 'image', url: 'https://picsum.photos/600/600?random=3', alt_text: 'Imagen 3' },
-	// 	{ type: 'image', url: 'https://picsum.photos/600/600?random=4', alt_text: 'Imagen 4' },
-	// 	// Agrega más imágenes...
-	// ];
-	const sampleImages: MediaItem[] = [
-		{
-			type: 'image',
-			url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/SAN_Boletin_Responsabilidad-Social_Int_608x405_2019.jpg',
-			alt_text: 'Imagen 1',
-		},
-		{
-			type: 'image',
-			url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/invierte_608.jpg',
-			alt_text: 'Imagen 2',
-		},
-		{
-			type: 'image',
-			url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/hipotecas_608.jpg',
-			alt_text: 'Imagen 3',
-		},
-		{
-			type: 'image',
-			url: 'https://www.santander.com.mx/ceb/images/sala-prensa/2019/SDEMH_7423_1.jpg',
-			alt_text: 'Imagen 4',
-		},
-		// Agrega más imágenes...
-	];
-
-	const interactions: Interactions = {
-		likes: 42,
-		comments: 5,
-		shares: 3,
-		bookmarks: 1,
-		views: 150,
-		user_interaction: {
-			liked: true,
-			shared: false,
-			bookmarked: true,
-		},
-	};
-
+export const CardContentPosts = ({ posts }: { posts: SocialMediaPost }) => {
+	console.log(posts);
 	return (
 		<Card className='card-posts'>
 			<CardHeader
 				avatar={
 					<Avatar
-						alt='Remy Sharp'
-						src='https://github.com/octocat.png'
+						alt={posts.author.username}
+						src={posts.author.profile_picture}
 					/>
 				}
-				title={'Nombre del proyecto'}
-				subheader={'1h'}
+				title={posts.author.username}
+				subheader={posts.metadata.created_at}
 				action={
 					<>
 						<IconButton aria-label='settings'>
@@ -107,27 +65,25 @@ export const CardContentPosts = () => {
 				className='card-content-posts'>
 				<div className='follow-posts'>
 					<Typography sx={{ maxWidth: '514px', textAlign: 'left', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-						Derek Robotech es una serie animada de ciencia ficción que narra la lucha entre humanos y alienígenas por el
-						control de la Protocultura. La serie está dividida en tres sagas que corresponden a tres guerras entre
-						humanos y alienígenas.
+						{posts.content.text}
 					</Typography>
 				</div>
 			</CardContent>
-			<CardMediaPicture images={sampleImages} />
+			<CardMediaPicture images={posts.content.media || []} />
 			<CardActions className='post-secction-commits'>
 				<div className='post-resume-commits'>
 					<div className='post-resume'>
 						{/* <IconButton size='small'>
 							<FavoriteIcon fontSize='inherit' />
 						</IconButton> */}
-						<IconPopoverBtn interactions={interactions} />
+						<IconPopoverBtn interactions={posts.interactions} />
 					</div>
 					<div className='post-commits'>
 						<Typography>
-							<span className='commits-data'>5</span> Commits
+							<span className='commits-data'>{posts.interactions.comments}</span> Commits
 						</Typography>
 						<Typography>
-							<span className='share-data'>2</span> Shared
+							<span className='share-data'>{posts.interactions.shares}</span> Shared
 						</Typography>
 					</div>
 				</div>
@@ -208,6 +164,7 @@ export const CardContentPosts = () => {
 					</SpeedDial>
 				</div>
 			</CardActions>
+			<CommentSection comments={posts.comments_preview || []} />
 		</Card>
 	);
 };

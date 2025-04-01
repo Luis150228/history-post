@@ -1,6 +1,5 @@
 import { IconButton, Tooltip, Stack } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import CommentIcon from '@mui/icons-material/Comment';
 import ShareIcon from '@mui/icons-material/Share';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -13,11 +12,6 @@ const interactionConfig = {
 		tooltip: (count: number, interacted: boolean) =>
 			`${count} ${count === 1 ? 'like' : 'likes'}${interacted ? '-' : ''}`,
 	},
-	// comments: {
-	// 	icon: CommentIcon,
-	// 	userInteractionKey: null,
-	// 	tooltip: (count: number) => `${count} ${count === 1 ? 'comentario' : 'comentarios'}`,
-	// },
 	shares: {
 		icon: ShareIcon,
 		userInteractionKey: 'shared',
@@ -45,7 +39,7 @@ export default function InteractionIcons({ interactions }: { interactions: Inter
 			const { icon: IconComponent, userInteractionKey, tooltip } = interactionConfig[interactionType];
 
 			const userInteracted = userInteractionKey
-				? interactions.user_interaction[userInteractionKey as keyof UserInteraction]
+				? interactions.user_interaction?.[userInteractionKey as keyof UserInteraction] ?? false
 				: false;
 
 			return {

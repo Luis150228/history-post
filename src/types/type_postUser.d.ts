@@ -28,11 +28,11 @@ export interface UserInteraction {
 
 export interface Interactions {
   likes: number;
-  comments: number;
-  shares: number;
-  bookmarks: number;
-  views: number;
-  user_interaction: UserInteraction;
+  comments?: number;
+  shares?: number;
+  bookmarks?: number;
+  views?: number;
+  user_interaction?: UserInteraction;
 }
 
 export interface UserInteraction {
@@ -49,6 +49,8 @@ export interface CommentPreview {
   };
   text: string;
   created_at: string;
+  interactions?: Interactions;
+  comments_response?: CommentPreview;
 }
 
 export interface PrivacySettings {

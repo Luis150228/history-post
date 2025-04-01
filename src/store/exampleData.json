@@ -60,7 +60,30 @@
                     "username": "janedoe"
                 },
                 "text": "¡Felicidades por tu primer post!",
-                "created_at": "2023-11-15T14:32:00Z"
+                "created_at": "2023-11-15T14:32:00Z",
+                "interactions": {
+                    "likes": 1,
+                    "comments": 1,
+                    "shares": 0,
+                    "bookmarks": 1,
+                    "views": 15,
+                    "user_interaction": {
+                        "liked": true,
+                        "shared": false,
+                        "bookmarked": true
+                    }
+                },
+                "comments_preview": [
+                    {
+                        "comment_id": "comment789",
+                        "user": {
+                            "user_id": "user101",
+                            "username": "johndoe"
+                        },
+                        "text": "¡Qué bonitas fotos y el apoyo de todos!",
+                        "created_at": "2023-11-15T14:53:00Z"
+                    }
+                ]
             }
         ],
         "privacy": {
