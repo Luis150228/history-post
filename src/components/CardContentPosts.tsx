@@ -27,8 +27,21 @@ import { type SocialMediaPost } from '../types/type_postUser.d';
 import IconPopoverBtn from './Buttons/IconPopoverBtn';
 import { CommentSection } from './Card/CommentSection';
 import { CommentAdd } from './Card/CommentAdd';
+import { useToggle } from '../hooks/activateCommits';
 
 export const CardContentPosts = ({ posts }: { posts: SocialMediaPost }) => {
+	const comments = useToggle();
+	const Addcomment = useToggle();
+
+	const handleToggleComments = () => {
+		// Solo permite toggle si hay comentarios
+		if (posts.interactions.comments !== undefined) {
+			if (posts.interactions.comments > 0) {
+				comments.toggle();
+			}
+		}
+	};
+
 	console.log(posts);
 	return (
 		<Card className='card-posts'>
@@ -77,10 +90,12 @@ export const CardContentPosts = ({ posts }: { posts: SocialMediaPost }) => {
 						<IconPopoverBtn interactions={posts.interactions} />
 					</div>
 					<div className='post-commits'>
-						<Typography>
+						<Typography
+							className='interactive-element'
+							onClick={handleToggleComments}>
 							<span className='commits-data'>{posts.interactions.comments}</span> Commits
 						</Typography>
-						<Typography>
+						<Typography className='interactive-element'>
 							<span className='share-data'>{posts.interactions.shares}</span> Shared
 						</Typography>
 					</div>
@@ -89,7 +104,6 @@ export const CardContentPosts = ({ posts }: { posts: SocialMediaPost }) => {
 					<SpeedDial
 						ariaLabel='Post actions'
 						icon={<ThumbUpOutlinedIcon />} // Icono principal simplificado
-						// openIcon={<FavoriteIcon />} // Icono cuando está abierto
 						direction='up'
 						sx={{
 							'& .MuiSpeedDial-fab': {
@@ -122,7 +136,9 @@ export const CardContentPosts = ({ posts }: { posts: SocialMediaPost }) => {
 							slotProps={{ tooltip: { title: 'Me entristece' } }}
 						/>
 					</SpeedDial>
-					<IconButton size='large'>
+					<IconButton
+						size='large'
+						onClick={Addcomment.toggle}>
 						<AddCommentOutlinedIcon fontSize='inherit' />
 					</IconButton>
 					<IconButton size='large'>
@@ -131,7 +147,6 @@ export const CardContentPosts = ({ posts }: { posts: SocialMediaPost }) => {
 					<SpeedDial
 						ariaLabel='Post actions'
 						icon={<ShareOutlinedIcon />} // Icono principal simplificado
-						// openIcon={<FavoriteIcon />} // Icono cuando está abierto
 						direction='up'
 						sx={{
 							'& .MuiSpeedDial-fab': {
@@ -162,8 +177,8 @@ export const CardContentPosts = ({ posts }: { posts: SocialMediaPost }) => {
 					</SpeedDial>
 				</div>
 			</CardActions>
-			<CommentSection comments={posts.comments_preview || []} />
-			<CommentAdd />
+			{comments.isVisible && <CommentSection comments={posts.comments_preview || []} />}
+			{Addcomment.isVisible && <CommentAdd />}
 		</Card>
 	);
 };

@@ -1,7 +1,7 @@
 import { List, ListItem, ListItemAvatar, Avatar, ListItemText, Typography, Divider, IconButton } from '@mui/material';
 import { type CommentPreview } from '../../types/type_postUser.d';
 import InteractionIcons from '../Buttons/IconPopoverBtn';
-import CreateIcon from '@mui/icons-material/Create';
+import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
 
 interface CommentSectionProps {
 	comments: CommentPreview[];
@@ -51,7 +51,7 @@ export const CommentSection = ({ comments }: CommentSectionProps) => {
 							<IconButton
 								edge='end'
 								size='small'>
-								<CreateIcon />
+								<AddCommentOutlinedIcon />
 							</IconButton>
 							<InteractionIcons interactions={comment.interactions || {}} />
 						</ListItem>

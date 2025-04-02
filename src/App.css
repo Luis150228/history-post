@@ -36,6 +36,10 @@
   margin-bottom: 0.5rem;
 }
 
+.interactive-element{
+  cursor: pointer;
+}
+
 .comment-section{
   display: flex;
   flex-direction: column;
