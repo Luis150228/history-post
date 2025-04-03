@@ -9,7 +9,6 @@ import {
 	SpeedDial,
 	SpeedDialAction,
 } from '@mui/material';
-import ListIcon from '@mui/icons-material/List';
 import CloseIcon from '@mui/icons-material/Close';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
@@ -29,7 +28,13 @@ import { CommentSection } from './Card/CommentSection';
 import { CommentAdd } from './Card/CommentAdd';
 import { useToggle } from '../hooks/activateCommits';
 
-export const CardContentPosts = ({ posts }: { posts: SocialMediaPost }) => {
+export const CardContentPosts = ({
+	posts,
+	onDelete,
+}: {
+	posts: SocialMediaPost;
+	onDelete: (postId: string) => void;
+}) => {
 	const comments = useToggle();
 	const Addcomment = useToggle();
 
@@ -56,10 +61,9 @@ export const CardContentPosts = ({ posts }: { posts: SocialMediaPost }) => {
 				subheader={posts.metadata.created_at}
 				action={
 					<>
-						<IconButton aria-label='settings'>
-							<ListIcon />
-						</IconButton>
-						<IconButton aria-label='close'>
+						<IconButton
+							aria-label='close'
+							onClick={() => onDelete(posts.post_id)}>
 							<CloseIcon />
 						</IconButton>
 					</>

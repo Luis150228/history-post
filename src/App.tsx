@@ -6,6 +6,8 @@ import { darkTheme } from './themes';
 import { CardContentPost } from './components/CardContentPost';
 import { CardContentPosts } from './components/CardContentPosts';
 import { SocialMediaPost } from './types/type_postUser.d';
+import { useState } from 'react';
+import { Fade } from '@mui/material';
 
 const samplePosts: SocialMediaPost[] = [
 	{
@@ -215,6 +217,20 @@ const samplePosts: SocialMediaPost[] = [
 ];
 
 export function App() {
+	const [posts, setPosts] = useState<SocialMediaPost[]>(samplePosts);
+	const [deletingId, setDeletingId] = useState<string | null>(null);
+
+	const handleDeletePost = (postId: string) => {
+		if (window.confirm('¿Estás seguro de querer eliminar este post?')) {
+			setDeletingId(postId);
+			// Espera a que complete la animación antes de eliminar
+			setTimeout(() => {
+				setPosts((prevPosts) => prevPosts.filter((post) => post.post_id !== postId));
+				setDeletingId(null);
+			}, 300);
+		}
+	};
+
 	return (
 		<ThemeProvider theme={darkTheme}>
 			<CssBaseline />
@@ -223,11 +239,21 @@ export function App() {
 					<CardContentPost />
 				</section>
 				<section className='section-posts'>
-					{samplePosts.map((post) => (
-						<CardContentPosts
-							key={post.post_id}
-							posts={post}
-						/>
+					{posts.map((post) => (
+						<Fade
+							in={deletingId !== post.post_id}
+							timeout={300}
+							unmountOnExit
+							key={post.post_id}>
+							<div style={{ marginBottom: '16px' }}>
+								{' '}
+								{/* Contenedor esencial */}
+								<CardContentPosts
+									posts={post}
+									onDelete={handleDeletePost}
+								/>
+							</div>
+						</Fade>
 					))}
 				</section>
 			</main>
