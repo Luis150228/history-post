@@ -52,6 +52,28 @@
   width: 100%;
 }
 
+.comment-item-li{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.resumen-icons-comments {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.resumen-icons-comments svg{
+  width: 15px;
+  height: 15px;
+  fill: rgb(0, 174, 255);
+}
+
 .card-content-post,
 .card-content-posts {
   display: flex;

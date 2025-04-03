@@ -11,15 +11,15 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import MessageIcon from '@mui/icons-material/Message';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
-import MarkEmailReadOutlinedIcon from '@mui/icons-material/MarkEmailReadOutlined';
+import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { CardMediaPicture } from './Card/CardMediaPicture';
 import { type SocialMediaPost } from '../types/type_postUser.d';
@@ -46,8 +46,6 @@ export const CardContentPosts = ({
 			}
 		}
 	};
-
-	console.log(posts);
 	return (
 		<Card className='card-posts'>
 			<CardHeader
@@ -146,7 +144,7 @@ export const CardContentPosts = ({
 						<AddCommentOutlinedIcon fontSize='inherit' />
 					</IconButton>
 					<IconButton size='large'>
-						<MarkEmailReadOutlinedIcon fontSize='inherit' />
+						<BookmarkAddOutlinedIcon fontSize='inherit' />
 					</IconButton>
 					<SpeedDial
 						ariaLabel='Post actions'
@@ -181,8 +179,8 @@ export const CardContentPosts = ({
 					</SpeedDial>
 				</div>
 			</CardActions>
-			{comments.isVisible && <CommentSection comments={posts.comments_preview || []} />}
 			{Addcomment.isVisible && <CommentAdd />}
+			{comments.isVisible && <CommentSection comments={posts.comments_preview || []} />}
 		</Card>
 	);
 };

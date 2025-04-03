@@ -1,7 +1,6 @@
-import { List, ListItem, ListItemAvatar, Avatar, ListItemText, Typography, Divider, IconButton } from '@mui/material';
+import { List, ListItem, ListItemAvatar, Avatar, ListItemText, Typography, Divider } from '@mui/material';
 import { type CommentPreview } from '../../types/type_postUser.d';
-import InteractionIcons from '../Buttons/IconPopoverBtn';
-import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
+import { ReplayAndButtons } from '../Buttons/ReplayAndButtons';
 
 interface CommentSectionProps {
 	comments: CommentPreview[];
@@ -13,8 +12,10 @@ export const CommentSection = ({ comments }: CommentSectionProps) => {
 		<div className='comment-section'>
 			<List dense>
 				{comments.map((comment) => (
-					<div key={comment.comment_id}>
-						<ListItem alignItems='flex-start'>
+					<div
+						key={comment.comment_id}
+						data-set={comment.comment_id}>
+						<ListItem className='comment-item-li'>
 							<ListItemAvatar>
 								<Avatar
 									alt={comment.user.username}
@@ -48,17 +49,9 @@ export const CommentSection = ({ comments }: CommentSectionProps) => {
 									</>
 								}
 							/>
-							<IconButton
-								edge='end'
-								size='small'>
-								<AddCommentOutlinedIcon />
-							</IconButton>
-							<InteractionIcons interactions={comment.interactions || {}} />
 						</ListItem>
-						<Divider
-							variant='inset'
-							component='li'
-						/>
+						<ReplayAndButtons interactions={comment.interactions} />
+						<Divider component='li' />
 					</div>
 				))}
 			</List>
