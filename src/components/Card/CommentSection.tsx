@@ -1,5 +1,5 @@
 import { List, ListItem, ListItemAvatar, Avatar, ListItemText, Typography, Divider } from '@mui/material';
-import { type CommentPreview } from '../../types/type_postUser.d';
+import { type Interactions, CommentPreview } from '../../types/type_postUser.d';
 import { ReplayAndButtons } from '../Buttons/ReplayAndButtons';
 
 interface CommentSectionProps {
@@ -8,6 +8,7 @@ interface CommentSectionProps {
 }
 
 export const CommentSection = ({ comments }: CommentSectionProps) => {
+	console.log(comments);
 	return (
 		<div className='comment-section'>
 			<List dense>
@@ -50,7 +51,10 @@ export const CommentSection = ({ comments }: CommentSectionProps) => {
 								}
 							/>
 						</ListItem>
-						<ReplayAndButtons interactions={comment.interactions} />
+						<ReplayAndButtons
+							interactions={comment.interactions || ({} as Interactions)}
+							replays={comment.comments_response || ({} as CommentPreview)}
+						/>
 						<Divider component='li' />
 					</div>
 				))}
