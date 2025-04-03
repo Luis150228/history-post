@@ -50,7 +50,7 @@ export interface CommentPreview {
   text: string;
   created_at: string;
   interactions?: Interactions;
-  comments_response?: CommentPreview;
+  comments_response?: CommentPreview[];
 }
 
 export interface PrivacySettings {

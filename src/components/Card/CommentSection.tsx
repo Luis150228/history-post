@@ -53,7 +53,7 @@ export const CommentSection = ({ comments }: CommentSectionProps) => {
 						</ListItem>
 						<ReplayAndButtons
 							interactions={comment.interactions || ({} as Interactions)}
-							replays={comment.comments_response || ({} as CommentPreview)}
+							replays={comment.comments_response ?? []}
 						/>
 						<Divider component='li' />
 					</div>

@@ -79,22 +79,48 @@ const samplePosts: SocialMediaPost[] = [
 					bookmarks: 1,
 					views: 2,
 				},
-				comments_response: {
-					comment_id: 'comment461',
-					user: {
-						user_id: 'user777',
-						username: 'fenixFree',
+				comments_response: [
+					{
+						comment_id: 'uuidv4_or_00000001-0001-0001',
+						user: {
+							user_id: 'user101',
+							username: 'johndoe',
+						},
+						text: '¡Qué bonitas fotos y el apoyo de todos!',
+						created_at: '2023-11-15T14:53:00Z',
+						comments_response: [
+							{
+								comment_id: 'uuidv4_or_00000001-0001-0001-001',
+								user: {
+									user_id: 'user101',
+									username: 'johndoe',
+								},
+								text: 'Trabajo en equipo',
+								created_at: '2023-11-15T14:53:00Z',
+							},
+						],
 					},
-					text: 'Fotos increibles de donde son????????????????????',
-					created_at: '2023-11-15T15:11:00Z',
-					interactions: {
-						likes: 1,
-						comments: 0,
-						shares: 1,
-						bookmarks: 1,
-						views: 2,
+					{
+						comment_id: 'uuidv4_or_00000001-0001-0002',
+						user: {
+							user_id: 'user101',
+							username: 'johndoe',
+						},
+						text: 'Excelente lugar para trabajar',
+						created_at: '2023-11-15T14:53:00Z',
+						comments_response: [
+							{
+								comment_id: 'uuidv4_or_00000001-0001-0001-001',
+								user: {
+									user_id: 'user101',
+									username: 'johndoe',
+								},
+								text: 'Powerfull!!!!!!!!',
+								created_at: '2023-11-15T14:53:00Z',
+							},
+						],
 					},
-				},
+				],
 			},
 			{
 				comment_id: 'comment457',

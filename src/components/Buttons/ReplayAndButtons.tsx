@@ -1,22 +1,25 @@
 import { IconButton, ListItem } from '@mui/material';
 import InteractionIcons from '../Buttons/IconPopoverBtn';
 import ReplyAllOutlinedIcon from '@mui/icons-material/ReplyAllOutlined';
-import ReviewsOutlinedIcon from '@mui/icons-material/ReviewsOutlined';
 import { CommentAdd } from '../Card/CommentAdd';
 import { useToggle } from '../../hooks/activateCommits';
 import { type CommentPreview, Interactions } from '../../types/type_postUser.d';
 import { CommentSection } from '../Card/CommentSection';
+import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
+import CommentsDisabledOutlinedIcon from '@mui/icons-material/CommentsDisabledOutlined';
+import { green, grey } from '@mui/material/colors';
 
 export const ReplayAndButtons = ({
 	interactions,
 	replays,
 }: {
 	interactions: Interactions;
-	replays: CommentPreview;
+	replays: CommentPreview[];
 }) => {
 	const AddReplay = useToggle();
 	const CommitsReplay = useToggle();
-	const exisReplay = replays.hasOwnProperty('comment_id');
+	// const exisReplay = replays.hasOwnProperty('comment_id');
+	const exisReplay = Array.isArray(replays) && replays.length > 0;
 
 	const handleToggleReplay = () => {
 		if (!AddReplay.isVisible) {
@@ -42,11 +45,11 @@ export const ReplayAndButtons = ({
 					size='small'
 					disabled={!exisReplay}
 					onClick={handleToggleReplayCommits}>
-					<ReviewsOutlinedIcon
-						sx={{
-							fill: exisReplay ? 'green' : 'gray',
-						}}
-					/>
+					{exisReplay ? (
+						<CommentOutlinedIcon sx={{ fill: green }} />
+					) : (
+						<CommentsDisabledOutlinedIcon sx={{ fill: grey }} />
+					)}
 				</IconButton>
 				<IconButton
 					edge='end'
