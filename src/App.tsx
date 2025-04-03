@@ -218,17 +218,9 @@ const samplePosts: SocialMediaPost[] = [
 
 export function App() {
 	const [posts, setPosts] = useState<SocialMediaPost[]>(samplePosts);
-	const [deletingId, setDeletingId] = useState<string | null>(null);
 
 	const handleDeletePost = (postId: string) => {
-		if (window.confirm('¿Estás seguro de querer eliminar este post?')) {
-			setDeletingId(postId);
-			// Espera a que complete la animación antes de eliminar
-			setTimeout(() => {
-				setPosts((prevPosts) => prevPosts.filter((post) => post.post_id !== postId));
-				setDeletingId(null);
-			}, 300);
-		}
+		setPosts((prevPosts) => prevPosts.filter((post) => post.post_id !== postId));
 	};
 
 	return (
@@ -241,7 +233,7 @@ export function App() {
 				<section className='section-posts'>
 					{posts.map((post) => (
 						<Fade
-							in={deletingId !== post.post_id}
+							in={true}
 							timeout={300}
 							unmountOnExit
 							key={post.post_id}>
