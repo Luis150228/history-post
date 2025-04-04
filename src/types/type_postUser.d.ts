@@ -96,6 +96,10 @@ export interface Image {
 	alt: string;
 }
 
+interface PostActionButtonsProps {
+	onAddComment: () => void;
+}
+
 // export interface ImageListItem {
 //   type: string
 //   url: string

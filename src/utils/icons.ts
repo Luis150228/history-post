@@ -1,0 +1,23 @@
+// src/components/Icons.ts
+export { default as CloseIcon } from '@mui/icons-material/Close';
+export { default as FavoriteIcon } from '@mui/icons-material/Favorite';
+export { default as SentimentDissatisfiedIcon } from '@mui/icons-material/SentimentDissatisfied';
+export { default as ThumbUpIcon } from '@mui/icons-material/ThumbUp';
+export { default as VolunteerActivismIcon } from '@mui/icons-material/VolunteerActivism';
+export { default as WhatsAppIcon } from '@mui/icons-material/WhatsApp';
+export { default as TelegramIcon } from '@mui/icons-material/Telegram';
+export { default as MessageIcon } from '@mui/icons-material/Message';
+export { default as ThumbUpOutlinedIcon } from '@mui/icons-material/ThumbUpOutlined';
+export { default as AddCommentOutlinedIcon } from '@mui/icons-material/AddCommentOutlined';
+export { default as BookmarkAddOutlinedIcon } from '@mui/icons-material/BookmarkAddOutlined';
+export {default as BookmarkAddedOutlinedIcon} from '@mui/icons-material/BookmarkAddedOutlined';
+export { default as ShareOutlinedIcon } from '@mui/icons-material/ShareOutlined';
+export { default as EmergencyRecordingIcon} from '@mui/icons-material/EmergencyRecording';
+export { default as CameraIcon} from '@mui/icons-material/Camera';
+export { default as AddReactionIcon} from '@mui/icons-material/AddReaction';
+export { default as Send} from '@mui/icons-material/Send';
+// export { default as NavigateBefore } from '@mui/icons-material';
+// export { default as NavigateNext} from '@mui/icons-material';
+// export { default as Close} from '@mui/icons-material';
+// export { default as Favorite} from '@mui/icons-material';
+// export { default as Share} from '@mui/icons-material';

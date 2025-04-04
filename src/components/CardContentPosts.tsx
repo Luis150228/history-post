@@ -1,32 +1,12 @@
-import {
-	Avatar,
-	Card,
-	CardActions,
-	CardContent,
-	CardHeader,
-	IconButton,
-	Typography,
-	SpeedDial,
-	SpeedDialAction,
-} from '@mui/material';
+import { Avatar, Card, CardActions, CardContent, CardHeader, IconButton, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import TelegramIcon from '@mui/icons-material/Telegram';
-import MessageIcon from '@mui/icons-material/Message';
-import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
-import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
-import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
-import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { CardMediaPicture } from './Card/CardMediaPicture';
 import { type SocialMediaPost } from '../types/type_postUser.d';
 import IconPopoverBtn from './Buttons/IconPopoverBtn';
 import { CommentSection } from './Card/CommentSection';
 import { CommentAdd } from './Card/CommentAdd';
 import { useToggle } from '../hooks/activateCommits';
+import { PostActionButtons } from './Buttons/PostActionButtons';
 
 export const CardContentPosts = ({
 	posts,
@@ -102,82 +82,7 @@ export const CardContentPosts = ({
 						</Typography>
 					</div>
 				</div>
-				<div className='post-commits-btns'>
-					<SpeedDial
-						ariaLabel='Post actions'
-						icon={<ThumbUpOutlinedIcon />} // Icono principal simplificado
-						direction='up'
-						sx={{
-							'& .MuiSpeedDial-fab': {
-								width: { xs: 36, sm: 40 }, // Responsive
-								height: { xs: 36, sm: 40 },
-								boxShadow: 'none',
-								backgroundColor: 'transparent',
-								color: '#fff',
-							},
-							'& .MuiSpeedDialAction-fab': {
-								width: 32,
-								height: 32,
-								boxShadow: 'none',
-							},
-						}}>
-						<SpeedDialAction
-							icon={<ThumbUpIcon />}
-							slotProps={{ tooltip: { title: 'Me Gusta' } }}
-						/>
-						<SpeedDialAction
-							icon={<FavoriteIcon />}
-							slotProps={{ tooltip: { title: 'Me encanta' } }}
-						/>
-						<SpeedDialAction
-							icon={<VolunteerActivismIcon />}
-							slotProps={{ tooltip: { title: 'Me importa' } }}
-						/>
-						<SpeedDialAction
-							icon={<SentimentDissatisfiedIcon />}
-							slotProps={{ tooltip: { title: 'Me entristece' } }}
-						/>
-					</SpeedDial>
-					<IconButton
-						size='large'
-						onClick={Addcomment.toggle}>
-						<AddCommentOutlinedIcon fontSize='inherit' />
-					</IconButton>
-					<IconButton size='large'>
-						<BookmarkAddOutlinedIcon fontSize='inherit' />
-					</IconButton>
-					<SpeedDial
-						ariaLabel='Post actions'
-						icon={<ShareOutlinedIcon />} // Icono principal simplificado
-						direction='up'
-						sx={{
-							'& .MuiSpeedDial-fab': {
-								width: { xs: 36, sm: 40 }, // Responsive
-								height: { xs: 36, sm: 40 },
-								boxShadow: 'none',
-								backgroundColor: 'transparent',
-								color: '#fff',
-							},
-							'& .MuiSpeedDialAction-fab': {
-								width: 32,
-								height: 32,
-								boxShadow: 'none',
-							},
-						}}>
-						<SpeedDialAction
-							icon={<WhatsAppIcon />}
-							slotProps={{ tooltip: { title: 'Whatsapp' } }}
-						/>
-						<SpeedDialAction
-							icon={<TelegramIcon />}
-							slotProps={{ tooltip: { title: 'Telegram' } }}
-						/>
-						<SpeedDialAction
-							icon={<MessageIcon />}
-							slotProps={{ tooltip: { title: 'Url' } }}
-						/>
-					</SpeedDial>
-				</div>
+				<PostActionButtons onAddComment={Addcomment.toggle} />
 			</CardActions>
 			{Addcomment.isVisible && <CommentAdd />}
 			{comments.isVisible && <CommentSection comments={posts.comments_preview || []} />}

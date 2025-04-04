@@ -1,7 +1,5 @@
 import { Card, CardContent, Divider, IconButton } from '@mui/material';
-import EmergencyRecordingIcon from '@mui/icons-material/EmergencyRecording';
-import CameraIcon from '@mui/icons-material/Camera';
-import AddReactionIcon from '@mui/icons-material/AddReaction';
+import { AddReactionIcon, CameraIcon, EmergencyRecordingIcon } from '../utils/icons';
 
 export const CardContentPost = () => {
 	return (
