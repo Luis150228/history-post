@@ -96,8 +96,26 @@ export interface Image {
 	alt: string;
 }
 
-interface PostActionButtonsProps {
+export interface PostActionButtonsProps {
 	onAddComment: () => void;
+}
+
+export interface MediaFile {
+  type: 'image' | 'video';
+  url: string;
+  file?: File; // Opcional si necesitas el objeto File después
+}
+
+export interface User {
+  id: string;
+  username: string;
+  profilePicture?: string;
+}
+
+export interface AuthContextType {
+  currentUser: User | null;
+  login: (user: User) => void;
+  logout: () => void;
 }
 
 // export interface ImageListItem {

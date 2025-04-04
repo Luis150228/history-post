@@ -1,4 +1,4 @@
-import { Button, IconButton, Snackbar, SnackbarCloseReason, SpeedDial, SpeedDialAction } from '@mui/material';
+import { IconButton, Snackbar, SnackbarCloseReason, SpeedDial, SpeedDialAction } from '@mui/material';
 import {
 	AddCommentOutlinedIcon,
 	BookmarkAddedOutlinedIcon,
@@ -22,7 +22,7 @@ export const PostActionButtons = ({ onAddComment }: PostActionButtonsProps) => {
 	const handleClick = () => {
 		setOpen(true);
 	};
-	const handleClose = (e: SyntheticEvent | Event, reason?: SnackbarCloseReason) => {
+	const handleClose = (_e: SyntheticEvent | Event, reason?: SnackbarCloseReason) => {
 		if (reason === 'clickaway') {
 			return;
 		}
