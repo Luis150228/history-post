@@ -8,6 +8,11 @@ import { CardContentPosts } from './components/CardContentPosts';
 import { SocialMediaPost } from './types/type_postUser.d';
 import { useState } from 'react';
 import { Fade } from '@mui/material';
+import { callPost } from './store/callPost';
+
+// callPost()
+const data = await callPost()
+console.log(data)
 
 const samplePosts: SocialMediaPost[] = [
 	{

@@ -8,7 +8,7 @@ interface CommentSectionProps {
 }
 
 export const CommentSection = ({ comments }: CommentSectionProps) => {
-	console.log(comments);
+	// console.log(comments);
 	return (
 		<div className='comment-section'>
 			<List dense>
